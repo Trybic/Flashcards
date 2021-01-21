@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fiszki</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+    />
+    <link rel="stylesheet" href="style/style.css" />
+    <script defer src="scripts/cards.js"></script>
+    <script defer src="scripts/modal.js"></script>
+    <script defer src="scripts/nightMode.js"></script>
+  </head>
+
+  <body class="theme">
+    <header class="navbar">
+      <h1 class="navbar__logo">Fiszki</h1>
+      <button class="navbar__button">
+        <img src="images/moon.svg" alt="Tryb nocny" class="btn-night hidden" />
+        <img src="images/sun.svg" alt="Tryb dzienny" class="btn-day hidden" />
+      </button>
+    </header>
+    <main class="container">
+      <div id="flashcards" class="container"></div>
+      <div class="card add">
+        <button data-modal-target="#modal" class="plus"></button>
+      </div>
+    </main>
+    <div id="modal" class="modal theme">
+      <h1 class="modal-title">Utwórz nową fiszkę</h1>
+      <form action="" id="add-to-flashcards" class="modal__form">
+        <div class="form-element">
+          <label for="">Wpisz słówko</label>
+          <input
+            name="get-front-text"
+            id="get-front-text"
+            type="text"
+            class="modal-input"
+            maxlength="50"
+            required
+          />
+        </div>
+        <div class="form-element">
+          <label for="">Wpisz tłumaczenie</label>
+          <input
+            name="get-back-text"
+            id="get-back-text"
+            type="text"
+            class="modal-input"
+            maxlength="50"
+            required
+          />
+        </div>
+        <div class="form-action">
+          <button type="submit" class="action-btn">Zapisz</button>
+          <button
+            data-close-button
+            type="reset"
+            class="action-btn close-button cancel"
+          >
+            Anuluj
+          </button>
+        </div>
+      </form>
+    </div>
+    <div id="modalDelete" class="modal theme">
+      <h1 class="modal-title">Usuń wszystkie fiszki</h1>
+      <form action="">
+        <p class="modal__text">Czy chcesz usunąć wszystkie fiszki?</p>
+        <div class="form-action">
+          <button type="submit" id="delete" class="action-btn warning">
+            Usuń
+          </button>
+          <button
+            data-close-button
+            type="reset"
+            class="action-btn close-button cancel"
+          >
+            Anuluj
+          </button>
+        </div>
+      </form>
+    </div>
+    <div id="overlay"></div>
+    <button data-modal-target="#modalDelete" class="delete hidden">
+      <img src="images/trash.svg" alt="Usuń fiszki" />
+    </button>
+    <footer class="footer">
+      <p>Fiszki - © Piotr Tyburczy 2021</p>
+    </footer>
+  </body>
+</html>
